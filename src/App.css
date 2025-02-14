@@ -1,0 +1,238 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+/* Style the navigation bar */
+@font-face {
+  font-family: 'Inter';
+  src: url('../assets/fonts/inter-var-latin.woff2') format('woff2');
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.navbar a {
+  color: #b0b0b0;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px; /* Rounded edges */
+  transition: color 0.3s ease-in-out;
+}
+
+.navbar a:hover {
+  color: #ffffff;
+}
+
+/* Headings */
+h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+/* Blog and Project Cards */
+.card {
+  background-color: #161616;
+  padding: 1rem;
+  border-radius: 8px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+/* Theme Toggle Styles */
+.theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  position: relative;
+  width: 40px;
+  height: 40px;
+}
+
+.theme-toggle svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s ease;
+  width: 24px;
+  height: 24px;
+}
+
+html[data-theme="light"] .moon-icon {
+  opacity: 0;
+}
+
+html[data-theme="dark"] .sun-icon {
+  opacity: 0;
+}
+
+html[data-theme="light"] .sun-icon {
+  opacity: 1;
+}
+
+html[data-theme="dark"] .moon-icon {
+  opacity: 1;
+}
+/* Combined Intro Section Styles */
+.intro-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+  position: relative;
+}
+
+.intro-content {
+  max-width: 600px;
+}
+
+.intro-section .name {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--text-color);
+}
+
+.intro-section .title {
+  font-size: 1.25rem;
+  color: var(--secondary-color);
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.intro-section .description {
+  color: var(--secondary-color);
+}
+
+.right-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1.5rem;
+}
+
+.profile-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--border-color);
+}
+
+@media (max-width: 768px) {
+  .intro-section {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .right-group {
+    margin-top: 2rem;
+    align-items: center;
+  }
+  
+  .profile-image {
+    width: 150px;
+    height: 150px;
+  }
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none; 
+  scrollbar-width: none; 
+}
+html {
+  scroll-behavior: smooth;
+}
+
+
+/* GradientAimatedBackground */
+@layer utilities {
+  @keyframes moveHorizontal {
+    0% {
+      transform: translateX(-50%) translateY(-10%);
+    }
+    50% {
+      transform: translateX(50%) translateY(10%);
+    }
+    100% {
+      transform: translateX(-50%) translateY(-10%);
+    }
+  }
+
+  @keyframes moveInCircle {
+    0% {
+      transform: rotate(0deg);
+    }
+    50% {
+      transform: rotate(180deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes moveVertical {
+    0% {
+      transform: translateY(-50%);
+    }
+    50% {
+      transform: translateY(50%);
+    }
+    100% {
+      transform: translateY(-50%);
+    }
+  }
+
+  .animate-first {
+    animation: moveVertical 30s ease infinite;
+  }
+
+  .animate-second {
+    animation: moveInCircle 20s reverse infinite;
+  }
+
+  .animate-third {
+    animation: moveInCircle 40s linear infinite;
+  }
+
+  .animate-fourth {
+    animation: moveHorizontal 40s ease infinite;
+  }
+
+  .animate-fifth {
+    animation: moveInCircle 20s ease infinite;
+  }
+}
+.floating-nav {
+  box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(8px);
+  background-color: rgba(255, 255, 255, 0.85) !important;
+}
+
+.dark .floating-nav {
+  background-color: rgba(17, 24, 39, 0.9) !important;
+  box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.4);
+}
+
+
+
